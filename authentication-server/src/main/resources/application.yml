@@ -1,0 +1,26 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: authentication-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#    sentinel:
+#      transport:
+#        port: 8719
+#        dashboard: localhost:8080
+
+# JWT配置
+jwt:
+  # 密匙KEY
+  secret: JWTSecret
+  # HeaderKEY
+  tokenHeader: Authorization
+  # Token前缀字符
+  tokenPrefix: wuzf-
+  # 过期时间 单位秒 1天后过期=86400 7天后过期=604800
+  expiration: 86400
+  # 配置不需要认证的接口
+  antMatchers: /index,/login/**,/favicon.ico
